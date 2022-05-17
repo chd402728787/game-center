@@ -1,9 +1,5 @@
 {
   "dependencies": {
-    "cnpm": "^8.1.0",
     "vant": "^3.4.9"
-  },
-  "devDependencies": {
-    "vue-router": "^4.0.15"
   }
 }
