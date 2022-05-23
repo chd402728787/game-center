@@ -55,8 +55,12 @@ export default {
     methods: {
         onSubmit(e) {
 
-            console.log(this.form.password)
-           
+           // console.log(this.form.password)
+           this.$store.state.pwd=this.form.password;
+           this.$store.state.name=this.form.username;
+
+        console.log(this.$store.state.name);
+        alert("注册成功！！！")
                 this.$router.push({ path: '/login' })
             
         }

@@ -56,10 +56,13 @@ export default {
         onSubmit(e) {
 
             console.log(this.form.password)
-            if (this.form.password == "123" && this.form.username == "admin") {
+            if (this.form.password == this.$store.state.pwd && this.form.username ==this.$store.state.name) {
                 console.log("成功")
                
                 this.$router.push({ path:'/user'})
+            }
+            else{
+                alert("登入失败！！！")
             }
         }
         
