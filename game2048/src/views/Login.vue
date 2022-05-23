@@ -8,7 +8,7 @@
                     :rules="[{ required: true, message: '请填写密码' }]" />
             </van-cell-group>
             <div style="margin: 16px;">
-                <van-button round block type="primary" native-type="submit">
+                <van-button round block type="primary" to="" native-type="submit">
                     提交
                 </van-button>
             </div>
@@ -40,9 +40,8 @@ export default {
             console.log(this.form.password)
             if (this.form.password == "123" && this.form.username == "admin") {
                 console.log("成功")
-                this.$route.push({
-                    path: '/user'
-                })
+               
+                this.$router.push({ path: '/user' })
             }
         }
 
