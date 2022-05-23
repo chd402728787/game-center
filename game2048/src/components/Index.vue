@@ -1,16 +1,14 @@
 <template>
   <!-- 顶部安全区 -->
   <div class="van-safe-area-top"></div>
+  <!--主界面-->
   <div class="index">
-    <van-row>
-      <van-col span="6">
-        <!--用户头像-->
-        <van-image round :src="require('@/assets/头像.jpg')" id="userHead" width="50px" height="50px"></van-image>
-      </van-col>
-      <van-col span="12"><label id="mainTitle">2048</label></van-col>
-      <van-col span="6"></van-col>
+    <van-row >
+      <van-col offset="6" span="12" ><h1>2 0 4 8</h1></van-col>
     </van-row>
-    <van-button type="primary" to="/about">开始游戏</van-button>
+    <van-button type="primary" to="/game">开始游戏</van-button><br /><br /><br />
+    <van-button type="primary" to="/about">游戏介绍</van-button><br /><br /><br />
+    <van-button type="primary" to="/Login">制作人员</van-button>
   </div>
   <!-- 底部安全区 -->
   <div class="van-safe-area-bottom"></div>
@@ -35,8 +33,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.mainTitle{
-  font: 36px sans-serif;
+<style scoped>
+h1{
+  font-size: 96px;
+  color:#1C86EE;
 }
 </style>

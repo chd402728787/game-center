@@ -1,17 +1,17 @@
 <template>
-  <div class="index">
-    <Index></Index>
+  <div class="game">
+    <Game></Game>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Index from '@/components/Index.vue'
+import Game from '@/components/Game.vue'
 
 export default {
-  name: 'IndexView',
+  name: 'GameView',
   components: {
-    Index,
+    Game,
   }
 }
 </script>
