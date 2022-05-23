@@ -1,10 +1,10 @@
 <template>
-  <div id="index">
+  <div id="index" >
     <!--导航栏-->
-    <van-nav-bar title="富强民组2048" left-text="返回" left-arrow @click-left="onClickLeft">
-      <template #right>
+    <van-nav-bar title="富强民组2048" left-text="返回" left-arrow @click-left="onClickLeft" route v-if="this.$route.meta.userinfo">
+      <template  #right >
         <!--用户头像-->
-        <van-image round :src="require('@/assets/头像.jpg')" id="userHead" width="25px" @click="gotoUser"></van-image>
+        <van-image  round :src="require('@/assets/头像.jpg')" id="userHead" width="25px" @click="gotoUser"></van-image>
       </template>
     </van-nav-bar>
 

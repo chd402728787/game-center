@@ -4,12 +4,14 @@ import AboutView from '../views/AboutView.vue'
 import UserView from '../views/UserView.vue'
 import Login from '../views/Login.vue'
 import GameView from '../views/GameView.vue'
+import Register from '../views/Register.vue'
 const routes = [{
         path: '/',
         name: 'index',
         component: IndexView,
         meta: {
-            keepAlive: true
+            keepAlive: true,
+            userinfo:true
         }
     },
     {
@@ -17,7 +19,8 @@ const routes = [{
         name: 'about',
         component: AboutView,
         meta: {
-            keepAlive: true
+            keepAlive: true,
+            userinfo:true
         }
     },
     {
@@ -25,7 +28,8 @@ const routes = [{
         name: 'user',
         component: UserView,
         meta: {
-            keepAlive: true
+            keepAlive: true,
+            userinfo:true
         }
     },
     {
@@ -33,7 +37,8 @@ const routes = [{
         name: 'Login',
         component: Login,
         meta: {
-            keepAlive: false
+            keepAlive: false,
+             userinfo:false
         }
 
     },
@@ -42,7 +47,19 @@ const routes = [{
         name: 'game',
         component: GameView,
         meta: {
-            keepAlive: false
+            keepAlive: false,
+            userinfo:true
+        }
+
+    }
+    ,
+    {
+        path: '/register',
+        name: 'register',
+        component: Register,
+        meta: {
+            keepAlive: false,
+            userinfo:false
         }
 
     }
