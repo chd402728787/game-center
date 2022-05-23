@@ -13,7 +13,6 @@
                 </van-button>
             </div>
         </van-form>
-
     </div>
 </template>
 <script>
