@@ -5,6 +5,7 @@ import UserView from '../views/UserView.vue'
 import Login from '../views/Login.vue'
 import GameView from '../views/GameView.vue'
 import Register from '../views/Register.vue'
+import Snake from '../views/Snake.vue'
 const routes = [{
         path: '/',
         name: 'index',
@@ -60,6 +61,16 @@ const routes = [{
         meta: {
             keepAlive: false,
             userinfo:false
+        }
+
+    },
+    {
+        path: '/snake',
+        name: 'snake',
+        component: Snake,
+        meta: {
+            keepAlive: false,
+            userinfo:true
         }
 
     }

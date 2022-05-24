@@ -6,7 +6,7 @@
     <van-row >
       <van-col offset="6" span="12" ><h1>2 0 4 8</h1></van-col>
     </van-row>
-    <van-button type="primary" to="/game">开始游戏</van-button><br /><br /><br />
+    <van-button type="primary" to="/snake">开始游戏</van-button><br /><br /><br />
     <van-button type="primary" to="/about">游戏介绍</van-button><br /><br /><br />
     <van-button type="primary" to="/Login">制作人员</van-button>
   </div>

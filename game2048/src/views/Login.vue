@@ -9,11 +9,15 @@
                 <van-field v-model="form.password" type="password" name="密码" label="密码" placeholder="密码"
                     :rules="[{ required: true, message: '请填写密码' }]" />
             </van-cell-group>
+             <div style="height:200px">
+
+           </div>
             <div style="margin: 16px;">
-                <van-button round block type="primary" to="" native-type="submit">
+                <van-button  block type="primary" to="" native-type="submit">
                     登入
                 </van-button>
-                <van-button round block type="primary" to="/register" >
+                <span style="height:30px">  &nbsp; &nbsp; &nbsp;   &nbsp;   &nbsp;     &nbsp;        </span>
+                <van-button  block type="primary" to="/register" >
                     注册
                 </van-button>
             </div>
@@ -32,7 +36,7 @@ export default {
         [Field.name]: Field,
         [CellGroup.name]: CellGroup,
         [Button.name]: Button,
-            [Tabbar.name]: Tabbar,
+        [Tabbar.name]: Tabbar,
         [TabbarItem.name]: TabbarItem,
         [NavBar.name]:NavBar,
         [Icon.name]:Icon,

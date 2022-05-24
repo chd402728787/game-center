@@ -12,8 +12,11 @@
                 <van-field v-model="form.password" type="password" name="密码" label="密码" placeholder="密码"
                     :rules="[{ required: true, message: '请填写密码' }]" />
             </van-cell-group>
-            <div style="margin: 16px;">
-                <van-button round block type="primary" to="" native-type="submit">
+            <div style="margin: 16px;  ">
+           <div style="height:200px">
+
+           </div>
+                <van-button  block type="primary" to="" native-type="submit">
                     提交
                 </van-button>
                 
