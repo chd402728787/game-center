@@ -4,6 +4,7 @@
    <canvas id="myCanvas" width="400" height="400"></canvas>
   </div>
 <h2>手指在屏幕中上下左右滑动，点击屏幕暂停。如果撞到自己或墙，游戏结束</h2>
+<button @click="reset()">重新开始</button>
 </template>
 
 <script>
@@ -28,10 +29,11 @@ export default {
         }
     },
    methods: {
-     isplay(){
-        this.form.flag++
-       clearTimeout()
-        
+    
+     reset(){
+    this.$router.go(0)
+    console.log("dadawdaddwwad")
+
      },
      xianDuan(){
            
@@ -83,7 +85,7 @@ let appleY = 5;
 let score = 0;
 
 //音效
-const gulpSound = new Audio("gulp.mp3");
+//const gulpSound = new Audio("gulp.mp3");
 
 
 //-----------------------------------------
@@ -270,7 +272,128 @@ function isGameOver() {
 
   return gameOver;
 }
+// 监听触摸事件
+var EventUtil = {
+  addHandler: function (element, type, handler) {
+    if (element.addEventListener)
+      element.addEventListener(type, handler,{ passive: false });
+    else if (element.attachEvent)
+      element.attachEvent("on" + type, handler);
+    else
+      element["on" + type] = handler;
+  },
+  removeHandler: function (element, type, handler) {
+    if (element.removeEventListener)
+      element.removeEventListener(type, handler, { passive: false });
+    else if (element.detachEvent)
+      element.detachEvent("on" + type, handler);
+    else
+      element["on" + type] = handler;
+  },
+  /**
+   * 监听触摸的方向
+   * @param target            要绑定监听的目标元素
+   * @param isPreventDefault  是否屏蔽掉触摸滑动的默认行为（例如页面的上下滚动，缩放等）
+   * @param upCallback        向上滑动的监听回调（若不关心，可以不传，或传false）
+   * @param rightCallback     向右滑动的监听回调（若不关心，可以不传，或传false）
+   * @param downCallback      向下滑动的监听回调（若不关心，可以不传，或传false）
+   * @param leftCallback      向左滑动的监听回调（若不关心，可以不传，或传false）
+   * @param notmove
+   */
+  listenTouchDirection: function (target, isPreventDefault, upCallback, rightCallback, downCallback, leftCallback,notmove) {
+    this.addHandler(target, "touchstart", handleTouchEvent);
+    this.addHandler(target, "touchend", handleTouchEvent);
+    this.addHandler(target, "touchmove", handleTouchEvent);
+    var startX;
+    var startY;
+    function handleTouchEvent(event) {
+      switch (event.type) {
+        case "touchstart":
+          startX = event.touches[0].pageX;
+          startY = event.touches[0].pageY;
+          break;
+        case "touchend":
+          var spanX = event.changedTouches[0].pageX - startX;
+          var spanY = event.changedTouches[0].pageY - startY;
 
+          if (Math.abs(spanX) > Math.abs(spanY))  {     //认定为水平方向滑动
+            if (spanX > 30) {         //向右
+              if (rightCallback)
+                rightCallback();
+            } 
+            
+            else if (spanX < -30) { //向左
+              if (leftCallback)
+                leftCallback();
+            }
+            else 
+            if(notmove)
+            notmove();
+
+
+
+
+          } else {                                    //认定为垂直方向滑动
+            if (spanY > 30) {         //向下
+              if (downCallback)
+                downCallback();
+            } else if (spanY < -30) {//向上
+              if (upCallback)
+                upCallback();
+            }
+            else 
+            if(notmove)
+            notmove();
+          }
+
+          break;
+        case "touchmove":
+          //阻止默认行为
+          if (isPreventDefault)
+            event.preventDefault();
+            
+          break;
+      }
+    }
+  }
+};
+// 触摸改变方向
+function up() {
+  if (inputsYVelocity == 1) return;
+  inputsYVelocity = -1;
+  inputsXVelocity = 0;
+  console.log("action:up");
+}
+function right() {
+  if (inputsXVelocity == -1) return;
+  inputsYVelocity = 0;
+  inputsXVelocity = 1;
+  console.log("action:right");
+}
+function down() {
+  if (inputsYVelocity == -1) return;
+  inputsYVelocity = 1;
+  inputsXVelocity = 0;
+
+  console.log("action:down");
+}
+function left() {
+  if (inputsXVelocity == 1) return;
+  inputsYVelocity = 0;
+  inputsXVelocity = -1;
+
+  console.log("action:left");
+}
+function not(){
+  inputsYVelocity = 0;
+  inputsXVelocity = 0;
+
+
+}
+//使用的时候很简单，只需要向下面这样调用即可
+//其中下面监听的是整个DOM
+//up, right, down, left为四个回调函数，分别处理上下左右的滑动事件
+EventUtil.listenTouchDirection(document, true, up, right, down, left,not)
 
 //给键盘控制加一个监听器，当按下键盘上的上下左右的时候，会改变蛇的走位
 document.body.addEventListener("keydown", keyDown);
