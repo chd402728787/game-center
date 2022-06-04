@@ -1,6 +1,5 @@
 <template>
   <div class="game">
-    <Game></Game>
    <canvas id="myCanvas" width="400" height="400"></canvas>
   </div>
 <h2>手指在屏幕中上下左右滑动，点击屏幕暂停。如果撞到自己或墙，游戏结束</h2>
@@ -10,13 +9,10 @@
 <script>
 
 
-// @ is an alias to /src
-import Game from '@/components/Game.vue'
 
 export default {
-  name: 'GameView',
+  name: 'SnakeView',
   components: {
-    Game,
   },
    mounted() {
      this.xianDuan()

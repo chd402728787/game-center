@@ -1,4 +1,5 @@
 <template>
+
   <div id="index" >
     <!--导航栏-->
     <van-nav-bar title="富强民组2048" left-text="返回" left-arrow @click-left="onClickLeft" route v-if="this.$route.meta.userinfo">
@@ -22,6 +23,7 @@
 </template>
 
 <style lang="scss">
+
 #index {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -55,9 +57,9 @@ export default {
     //点击用户头像跳转到用户界面
     gotoUser(){
       this.$router.replace('/user');
-      console.log(this.$store.state.a++)
-      console.log(this.$store.state.a)
-    }
+    },
+    
+
   }
 }
 </script>

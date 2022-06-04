@@ -3,7 +3,7 @@ import IndexView from '../views/IndexView.vue'
 import AboutView from '../views/AboutView.vue'
 import UserView from '../views/UserView.vue'
 import Login from '../views/Login.vue'
-import GameView from '../views/GameView.vue'
+import Game2048View from '../views/Game2048View.vue'
 import Register from '../views/Register.vue'
 import Snake from '../views/Snake.vue'
 const routes = [{
@@ -12,7 +12,7 @@ const routes = [{
         component: IndexView,
         meta: {
             keepAlive: true,
-            userinfo:true
+            userinfo: true
         }
     },
     {
@@ -21,7 +21,7 @@ const routes = [{
         component: AboutView,
         meta: {
             keepAlive: true,
-            userinfo:true
+            userinfo: true
         }
     },
     {
@@ -30,7 +30,7 @@ const routes = [{
         component: UserView,
         meta: {
             keepAlive: true,
-            userinfo:true
+            userinfo: true
         }
     },
     {
@@ -39,28 +39,27 @@ const routes = [{
         component: Login,
         meta: {
             keepAlive: false,
-             userinfo:false
+            userinfo: false
         }
 
     },
     {
-        path: '/game',
-        name: 'game',
-        component: GameView,
+        path: '/game2048',
+        name: 'game2048',
+        component: Game2048View,
         meta: {
             keepAlive: false,
-            userinfo:true
+            userinfo: true
         }
 
-    }
-    ,
+    },
     {
         path: '/register',
         name: 'register',
         component: Register,
         meta: {
             keepAlive: false,
-            userinfo:false
+            userinfo: false
         }
 
     },
@@ -70,7 +69,7 @@ const routes = [{
         component: Snake,
         meta: {
             keepAlive: false,
-            userinfo:true
+            userinfo: true
         }
 
     }

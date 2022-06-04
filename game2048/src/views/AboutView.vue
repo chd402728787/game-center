@@ -1,5 +1,12 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>游戏简介</h1>
+    <h2 style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;《2048》是一款数字益智游戏，而《2048》的初始数字则是由2+2组成的基数4。在操作方面的不同则表现为一步一格的移动，变成更为爽快的一次到底。相同数字的方况在靠拢、相撞时会相加。系统给予的数字方块不是2就是4，玩家要想办法在这小小的16格范围中凑出「2048」这个数字方块。</h2>
   </div>
 </template>
