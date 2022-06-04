@@ -7,7 +7,10 @@
         <van-image  round :src="require('@/assets/头像.jpg')" id="userHead" width="25px" @click="gotoUser"></van-image>
       </template>
     </van-nav-bar>
-
+    <!-- 顶部安全区 -->
+    <div class="van-safe-area-top"></div>
+    <!-- 底部安全区 -->
+    <div class="van-safe-area-bottom"></div>
     <router-view />
     
     <!--标签栏-->
@@ -33,6 +36,7 @@ import { Tabbar,TabbarItem } from "vant";
 import { NavBar } from "vant";
 import { Icon } from "vant";
 import { Image  } from 'vant'
+import { Store } from "vuex";
 export default {
   components: {
     [Tabbar.name]: Tabbar,
@@ -51,6 +55,8 @@ export default {
     //点击用户头像跳转到用户界面
     gotoUser(){
       this.$router.replace('/user');
+      console.log(this.$store.state.a++)
+      console.log(this.$store.state.a)
     }
   }
 }

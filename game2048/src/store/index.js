@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 
 export default createStore({
+<<<<<<< HEAD
   state: {
     a:"1",
     name:"",
@@ -19,3 +20,17 @@ export default createStore({
   modules: {
   }
 })
+=======
+    state: {
+        a: "1"
+    },
+    getters: {},
+    mutations: {
+        setValue(state, a) {
+            state.a = a;
+        }
+    },
+    actions: {},
+    modules: {}
+})
+>>>>>>> 5718744 (更新”)
