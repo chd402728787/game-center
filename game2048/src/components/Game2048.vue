@@ -69,6 +69,7 @@ function onAddCard(cardNumber, list) {
   const target = cardList.value[indexList[index].i][indexList[index].j];
   target.value = 2;
   indexList.splice(index, 1);
+  //console.log(cardList);//查看方块数组
   return onAddCard(--cardNumber, indexList);
 }
 //方块移动
