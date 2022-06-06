@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import Game2048View from '../views/Game2048View.vue'
 import Register from '../views/Register.vue'
 import Snake from '../views/Snake.vue'
+import Choose from '../views/Choose.vue'
 const routes = [{
         path: '/',
         name: 'index',
@@ -67,6 +68,16 @@ const routes = [{
         path: '/snake',
         name: 'snake',
         component: Snake,
+        meta: {
+            keepAlive: false,
+            userinfo: true
+        }
+
+    },
+    {
+        path:'/choose',
+        name:'choose',
+        component:Choose,
         meta: {
             keepAlive: false,
             userinfo: true
