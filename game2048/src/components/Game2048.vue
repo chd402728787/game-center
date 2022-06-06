@@ -15,6 +15,7 @@
     </div>
   </div>
   <div class="gameFunc">
+    <br />
     <van-button type="primary" @click="onResetGame">重新开始</van-button>
   </div>
   </div>
@@ -125,6 +126,8 @@ function onSlideDown(direction) {
     }
   }
 }
+
+const store = useStore();
 //重新开始游戏
 function onResetGame() {
   cardList.value = Array(4).fill('').map(
@@ -133,6 +136,8 @@ function onResetGame() {
     }))
   );
   onAddCard(2);
+  console.log(store);
+  store.state.count++;
 }
 //方块数值变化则添加新方块，否则不变
 watch(direction, (newVal) => {
@@ -218,12 +223,14 @@ function useTouchSlide(selector, safeOffset = 20) {
 </script>
 
 <script>
-import { Button } from 'vant'
+import { Button } from 'vant';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 export default {
   name: 'game',
   components:{
     [Button.name]:Button,
-  }
+  },
 }
 </script>
 

@@ -8,9 +8,9 @@
 
         <van-cell-group>
            
-            <van-cell title="用户名" ><h2>{{form.userName}}</h2></van-cell>
-            <van-cell title="游戏次数" value="内容" />
-             <van-cell title="游戏总分" value="内容" />
+            <van-cell title="用户名" ><h3>{{form.userName}}</h3></van-cell>
+            <van-cell title="游戏次数" value="内容"><h3>{{form.count}}</h3></van-cell>
+            <van-cell title="游戏总分" value="内容" />
             <van-cell title="游戏最高分" value="内容" />
             
         </van-cell-group>
@@ -41,7 +41,8 @@ export default {
         return {
             form: {
                 userName: this.$store.state.name,
-                passWord: ""
+                passWord: "",
+                count:this.$store.state.count
             }
         }
     }
