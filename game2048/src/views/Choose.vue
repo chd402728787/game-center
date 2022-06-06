@@ -5,7 +5,7 @@
     <van-row >
       <van-col offset="6" span="12" ><h1>游戏<br>选择</h1></van-col>
     </van-row>
-    <van-button type="primary" to="/game2048">2048</van-button><br /><br /><br />
+    <van-button type="primary" to="/game2048">2 0 4 8</van-button><br /><br /><br />
     <van-button type="primary" to="/snake">贪吃蛇</van-button><br /><br /><br />
  
 </template>

@@ -16,6 +16,7 @@
   </div>
   <div class="gameFunc">
     <br />
+    <h1>score:{{store.state.score2048}}</h1>
     <van-button type="primary" @click="onResetGame">重新开始</van-button>
   </div>
   </div>
@@ -31,7 +32,7 @@ const emit = defineEmits([
   'no-change',
   'point',
 ]);
-
+const store = useStore();
 // 主要工具
 const cardChanged = ref(false);
 const [direction] = useTouchSlide('.playground');
@@ -93,6 +94,7 @@ function onMove(direction, r, c) {
       next.value *= 2;
       card.value = 0;
       cardChanged.value = true;
+      store.state.score2048+=next.value;
       // 将新数值添加到方块上
       emit('point', next.value);
     }
@@ -127,7 +129,6 @@ function onSlideDown(direction) {
   }
 }
 
-const store = useStore();
 //重新开始游戏
 function onResetGame() {
   cardList.value = Array(4).fill('').map(
@@ -136,8 +137,13 @@ function onResetGame() {
     }))
   );
   onAddCard(2);
-  console.log(store);
-  store.state.count++;
+  //console.log(store);
+  let score=store.state.score2048;
+  store.state.count2048++;  //记录游戏次数
+  store.state.scoreAll2048+=score;//记录总分
+  if(score>store.state.scoreMax2048)//记录最高分
+    store.state.scoreMax2048=score;
+  store.state.score2048=0;    //当前分数清零
 }
 //方块数值变化则添加新方块，否则不变
 watch(direction, (newVal) => {
