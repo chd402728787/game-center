@@ -8,7 +8,7 @@
     </van-row>
     <van-button type="primary" to="/choose">开始游戏</van-button><br /><br /><br />
     <van-button type="primary" to="/about">游戏介绍</van-button><br /><br /><br />
-    <van-button type="primary" to="/Login">制作人员</van-button>
+    <van-button type="primary" to="/worker">制作人员</van-button>
   </div>
 
 </template>

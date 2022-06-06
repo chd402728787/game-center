@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "vant": "^3.4.9"
+    "vant": "^3.4.9",
+    "vue-cookies": "^1.8.1"
   },
   "devDependencies": {
     "lib-flexible": "^0.3.2",

@@ -7,6 +7,7 @@ import Game2048View from '../views/Game2048View.vue'
 import Register from '../views/Register.vue'
 import Snake from '../views/Snake.vue'
 import Choose from '../views/Choose.vue'
+import worker from '../views/workerView.vue'
 const routes = [{
         path: '/',
         name: 'index',
@@ -75,14 +76,23 @@ const routes = [{
 
     },
     {
-        path:'/choose',
-        name:'choose',
-        component:Choose,
+        path: '/choose',
+        name: 'choose',
+        component: Choose,
         meta: {
             keepAlive: false,
             userinfo: true
         }
 
+    },
+    {
+        path: '/worker',
+        name: 'worker',
+        component: worker,
+        meta: {
+            keepAlive: false,
+            userinfo: true
+        }
     }
 ]
 

@@ -4,8 +4,8 @@
 
   <div id="user">
     <van-image
-      width="4rem"
-      height="4rem"
+      width="100px"
+      height="100px"
       fit="cover"
       position="left"
       round

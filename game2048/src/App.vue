@@ -39,6 +39,7 @@ import { NavBar } from "vant";
 import { Icon } from "vant";
 import { Image  } from 'vant'
 import { Store } from "vuex";
+
 export default {
   components: {
     [Tabbar.name]: Tabbar,

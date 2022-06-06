@@ -3,4 +3,5 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import "lib-flexible/flexible"
-const app = createApp(App).use(store).use(router).mount('#app');
+import VueCookies from 'vue-cookies';
+const app = createApp(App).use(store).use(router).use(VueCookies).mount('#app');

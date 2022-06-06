@@ -1,24 +1,22 @@
 <template>
   <div class="game">
-  <div class="playground">
-  <!--给每个行每个块分别取一个名儿-->
-    <div v-for="(row, ri) in cardList" :key="`card-row-${ri}`" class="card-row">
-      <div v-for="(card, i) in row" :key="`card-${i}`" class="card">
-        <div
-          :class="['card-grid', { bounce: card.value > 0 }]"
-          :key="`card-grid-${i}-${card.value}`"
-          :data-value="card.value"
-        >
-          {{ card.value > 0 ? card.value : '' }}
+    <div class="playground">
+      <!--给每个行每个块分别取一个名儿-->
+      <div v-for="(row, ri) in cardList" :key="`card-row-${ri}`" class="card-row">
+        <div v-for="(card, i) in row" :key="`card-${i}`" class="card">
+          <div :class="['card-grid', { bounce: card.value > 0 }]" :key="`card-grid-${i}-${card.value}`"
+            :data-value="card.value">
+            {{ card.value > 0 ? card.value : '' }}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="gameFunc">
-    <br />
-    <h1>score:{{store.state.score2048}}</h1>
-    <van-button type="primary" @click="onResetGame">重新开始</van-button>
-  </div>
+    <!--分数和重新开始界面-->
+    <div class="gameFunc">
+      <br />
+      <h1>score:{{ store.state.score2048 }}</h1>
+      <van-button type="primary" @click="onResetGame">重新开始</van-button>
+    </div>
   </div>
   <!-- 底部安全区 -->
   <div class="van-safe-area-bottom"></div>
@@ -35,7 +33,7 @@ const emit = defineEmits([
 const store = useStore();
 // 主要工具
 const cardChanged = ref(false);
-const [direction] = useTouchSlide('.playground');
+const [direction] = useTouchSlide('.playground');//触摸移动
 //通过移动方向判断下一个位置
 const getNextMap = {
   1: (r, c) => () => r > 0 && cardList.value[--r][c],
@@ -94,7 +92,7 @@ function onMove(direction, r, c) {
       next.value *= 2;
       card.value = 0;
       cardChanged.value = true;
-      store.state.score2048+=next.value;
+      store.state.score2048 += next.value;
       // 将新数值添加到方块上
       emit('point', next.value);
     }
@@ -138,12 +136,12 @@ function onResetGame() {
   );
   onAddCard(2);
   //console.log(store);
-  let score=store.state.score2048;
+  let score = store.state.score2048;
   store.state.count2048++;  //记录游戏次数
-  store.state.scoreAll2048+=score;//记录总分
-  if(score>store.state.scoreMax2048)//记录最高分
-    store.state.scoreMax2048=score;
-  store.state.score2048=0;    //当前分数清零
+  store.state.scoreAll2048 += score;//记录总分
+  if (score > store.state.scoreMax2048)//记录最高分
+    store.state.scoreMax2048 = score;
+  store.state.score2048 = 0;    //当前分数清零
 }
 //方块数值变化则添加新方块，否则不变
 watch(direction, (newVal) => {
@@ -164,7 +162,7 @@ onResetGame();
 function useTouchSlide(selector, safeOffset = 20) {
   // 1: 上, 2: 右, 3: 下, 4: 左
   const direction = ref(0);
-  
+
   let xDown = null;
   let yDown = null;
   //触摸开始
@@ -181,11 +179,11 @@ function useTouchSlide(selector, safeOffset = 20) {
   //触摸移动
   function handleTouchMove(evt) {
     if (!xDown || !yDown) return;
-    
+
     const currentTouch = (evt.touches && evt.touches[0]) || evt;
     const xUp = currentTouch.clientX;
     const yUp = currentTouch.clientY;
-    
+
     const xDiff = xDown - xUp;
     const yDiff = yDown - yUp;
     //限定触摸方向数值
@@ -218,12 +216,12 @@ function useTouchSlide(selector, safeOffset = 20) {
     target.removeEventListener('mousemove', handleTouchMove);
     target.removeEventListener('mouseup', handleTouchStop);
   }
-  
+
   onMounted(() => {
     //初始化
     init();
   })
-  
+
   return [direction, destroy];
 }
 </script>
@@ -234,13 +232,12 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 export default {
   name: 'game',
-  components:{
-    [Button.name]:Button,
+  components: {
+    [Button.name]: Button,
   },
 }
 </script>
 
 <style lang="scss">
 @import '../assets/game2048.scss';
-
 </style>
