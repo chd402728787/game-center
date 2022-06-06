@@ -62,8 +62,8 @@ export default {
             console.log(this.form.password)
             if (this.form.password == this.$store.state.pwd && this.form.username ==this.$store.state.name) {
                 console.log("成功")
-               
-                this.$router.push({ path:'/user'})
+                this.$store.state.isLogin=true;
+                this.$router.push({ path:'/'})
             }
             else{
                 alert("登入失败！！！")

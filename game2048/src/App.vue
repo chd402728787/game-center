@@ -53,6 +53,10 @@ export default {
       onClickLeft,
     };
   },
+  created(){
+    if(!this.$store.state.isLogin)
+      this.$router.replace('/login');
+  },
   methods:{
     //点击用户头像跳转到用户界面
     gotoUser(){

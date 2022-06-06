@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
-        a: "1",
+        isLogin: false,
         name: "",
         pwd: "",
         count2048: 0,
@@ -15,6 +15,9 @@ export default createStore({
     },
     getters: {},
     mutations: {
+        setLogin(state, isLogin) {
+            state.isLogin = isLogin;
+        },
         setValue(state, name, pwd) {
             state.name = name;
             state.pwd = pwd;
