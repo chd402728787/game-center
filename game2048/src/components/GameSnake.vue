@@ -4,7 +4,10 @@
   </div>
   <h2>手指在屏幕中上下左右滑动，点击屏幕暂停。如果撞到自己或墙，游戏结束</h2>
   <!-- <button @click="reset()">重新开始</button> -->
-  <van-button type="primary" @click="reset()">重新开始</van-button>
+  
+  <router-link to="/snake">
+    <van-button type="primary" @click="reset()">重新开始</van-button>
+  </router-link>
 </template>
 
 <script>
@@ -27,6 +30,7 @@ export default {
   },
   methods: {
     reset() {
+      this.$store.state.isLogin=true;
       this.$router.go(0);
     },
     xianDuan() {

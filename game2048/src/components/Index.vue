@@ -4,10 +4,14 @@
   <!--主界面-->
   <div class="index">
     <van-row >
+<<<<<<< HEAD
     
 
       <van-col offset="4" span="16" ><h1>富 强<br />民 组</h1></van-col>
 
+=======
+      <van-col offset="4" span="16" @click="deleteMsg()"><h1>富 强<br />民 组</h1></van-col>
+>>>>>>> 111c9de (添加localstorage，改了个烂bug)
     </van-row>
     <van-button type="primary" to="/choose">开始游戏</van-button><br /><br /><br />
     <van-button type="primary" to="/about">游戏介绍</van-button><br /><br /><br />
@@ -31,7 +35,12 @@ export default {
   props: {
     msg: String
   },
-
+  methods:{
+    deleteMsg(){
+       localStorage.removeItem('userName');
+       this.$store.state.isLogin=false;
+    }
+  }
 }
 </script>
 
