@@ -70,7 +70,6 @@ export default {
     //点击用户头像跳转到用户界面
     gotoUser(){
       this.$router.replace('/user');
-      localStorage.removeItem('userMsg');
     },
     
 
