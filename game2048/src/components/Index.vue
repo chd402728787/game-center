@@ -4,7 +4,7 @@
   <!--主界面-->
   <div class="index">
     <van-row >
-      <van-col offset="6" span="12" ><h1>2 0<br>4 8</h1></van-col>
+      <van-col offset="6" span="12" ><h1>富强<br>民组</h1></van-col>
     </van-row>
     <van-button type="primary" to="/choose">开始游戏</van-button><br /><br /><br />
     <van-button type="primary" to="/about">游戏介绍</van-button><br /><br /><br />
@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 h1{
-  font-size: 96px;
+  font-size: 60px;
   color:#1C86EE;
 }
 </style>
