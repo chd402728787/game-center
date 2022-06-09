@@ -5,13 +5,13 @@ export default createStore({
         isLogin: false,
         name: "",
         pwd: "",
-        count2048: 0,
-        countSnake: 0,
-        score2048: 0,
-        scoreAll2048: 0,
-        scoreSnake: 0,
-        scoreMaxSnake: 0,
-        scoreMax2048: 0,
+        count2048: 0, //记录2048游戏次数
+        countSnake: 0, //记录贪吃蛇游戏次数
+        score2048: 0, //记录2048当前分数
+        scoreAll2048: 0, //记录2048总分
+        scoreSnake: 0, //记录贪吃蛇总分
+        scoreMax2048: 0, //记录2048最高分
+        scoreMaxSnake: 0, //记录贪吃蛇最高分
     },
     getters: {},
     mutations: {
